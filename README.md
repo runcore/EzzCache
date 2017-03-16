@@ -1,0 +1,2 @@
+# EzzCache
+Simple embedded cache
