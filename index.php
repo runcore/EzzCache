@@ -2,7 +2,8 @@
 
 require_once('./Ezz/autoexec.php');
 
-// Examples -----------------------------------------------------
+// Examples
+
 $page = 3;
 $cacheKey = 'news_page'.$page;
 $ttl = 3;
@@ -19,7 +20,7 @@ $newsList = Ezz\cache($params, function() use ($page) {
     }
     return null;
 });
-//$newsList = unserialize($newsList);
 
+// Show result
 Ezz\pr( $newsList );
 

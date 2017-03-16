@@ -39,13 +39,12 @@ class CacheFile extends Cache {
 
     /**
      * @param $data
-     * @return mixed
+     * @return bool
      */
     protected function _set($data) {
         $file = $this->getKey();
         //$data = [$this->type, $data];
-        file_put_contents( $file, $data, LOCK_EX);
-        return $data;
+        return (file_put_contents( $file, $data, LOCK_EX) !== false);
     }
 
     /**
@@ -67,6 +66,16 @@ class CacheFile extends Cache {
         $ftime = filemtime($file);
 
         return ( time() > ($ftime + $this->ttl) );
+    }
+
+    /**
+     *
+     */
+    protected function _delete() {
+        $file = $this->getKey();
+        if (file_exists($file)) {
+            unlink($file);
+        }
     }
 
 }

@@ -152,7 +152,7 @@ abstract class Cache {
 
     /**
      * @param $data
-     * @return mixed
+     * @return bool
      */
     abstract protected function _set( $data );
 
@@ -160,5 +160,10 @@ abstract class Cache {
      * @return mixed
      */
     abstract protected function _expired();
+
+    /**
+     * @return mixed
+     */
+    abstract protected function _delete();
 
 }
